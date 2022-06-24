@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:22:49 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/24 16:41:30 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/24 19:26:57 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ static char	*ft_strcat(char *dest, char *src)
 	src_index = 0;
 	while (dest[dest_index])
 		dest_index++;
-	while (src[src_index] && src[src_index] != '\n')
+	while (src[src_index] && src_index < BUFFER_SIZE)
 	{
 		dest[dest_index + src_index] = src[src_index];
 		src_index++;
+		if (src[src_index] == '\n')
+			break ;
 	}
 	dest[dest_index + src_index] = 0;
 	return (dest);
@@ -62,12 +64,16 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len_s2;
 	char	*joined_str;
 
-	len_s1 = my_strlen(s1);
+	if (s1)
+		len_s1 = my_strlen(s1);
+	else
+		len_s1 = 0;
 	len_s2 = my_strlen(s2);
 	joined_str = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (joined_str == 0)
 		return (0);
-	ft_strcpy(joined_str, (char *)s1);
+	if (s1)
+		ft_strcpy(joined_str, (char *)s1);
 	ft_strcat(joined_str, (char *)s2);
 	return (joined_str);
 }

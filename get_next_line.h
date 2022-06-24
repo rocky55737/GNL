@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:57:50 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/15 19:18:15 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/24 16:59:56 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_substr(char const *s, unsigned int start);
