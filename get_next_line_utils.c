@@ -6,13 +6,13 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:22:49 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/24 19:26:57 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/27 18:06:48 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static size_t	my_strlen(char const *str)
+size_t	my_strlen(char const *str)
 {
 	size_t	len;
 
@@ -22,7 +22,7 @@ static size_t	my_strlen(char const *str)
 	return (len);
 }
 
-static char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	dest_index;
 	int	src_index;
@@ -35,14 +35,12 @@ static char	*ft_strcat(char *dest, char *src)
 	{
 		dest[dest_index + src_index] = src[src_index];
 		src_index++;
-		if (src[src_index] == '\n')
-			break ;
 	}
 	dest[dest_index + src_index] = 0;
 	return (dest);
 }
 
-static size_t	ft_strcpy(char *dest, char *src)
+size_t	ft_strcpy(char *dest, char *src)
 {
 	size_t	len;
 	size_t	counter;
@@ -78,7 +76,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (joined_str);
 }
 
-char	*ft_substr(char const *s, unsigned int start)
+char	*ft_substr_nl(char const *s, unsigned int start)
 {
 	char	*sub_string;
 	size_t	cnt;
