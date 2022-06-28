@@ -6,12 +6,11 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:24:39 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/27 18:28:46 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/28 18:26:30 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -47,13 +46,15 @@ char	*ft_strdup_nl(const char *src)
 	src_len = 0;
 	while (src[src_len] && src[src_len] != '\n')
 		src_len++;
+	if (src[src_len] == '\n')
+		src_len++;
 	duped_str = (char *)malloc(sizeof(char) * (src_len + 1));
 	if (duped_str == 0)
 		return (0);
 	duped_str[src_len] = 0;
-	while (-1 < src_len)
+	while (0 < src_len)
 	{
-		duped_str[src_len] = src[src_len];
+		duped_str[src_len - 1] = src[src_len - 1];
 		src_len--;
 	}
 	return (duped_str);
@@ -73,7 +74,7 @@ char	*get_next_line(int fd)
 	{
 		pre[0] = ft_strjoin(pre[0], buff);
 		if (ft_strchr(pre[0], '\n') >= 0)
-			break	;
+			break ;
 		ft_memset(buff, 0, BUFFER_SIZE + 1);
 		read_flag = read(fd, buff, BUFFER_SIZE);
 	}

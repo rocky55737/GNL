@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:57:50 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/27 18:11:16 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/28 18:33:30 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 10
 # endif
 
 char	*get_next_line(int fd);
 char	*ft_substr_nl(char const *s, unsigned int start);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif
