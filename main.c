@@ -9,7 +9,7 @@ int main()
 
 	fd = open("testfile", O_RDONLY);
 	cnt = 0;
-	while (cnt < 10)
+	while (cnt < 11)
 	{
 		ret = get_next_line(fd);
 		printf("%d번째 트라이 : %s\n", cnt, ret);

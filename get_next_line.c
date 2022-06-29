@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:24:39 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/29 17:17:30 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/29 17:49:15 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ char	*ft_strdup_nl(const char *src)
 		src_len++;
 	if (src[src_len] == '\n')
 		src_len++;
+	if (src_len == 0)
+		return (0);
 	duped_str = (char *)malloc(sizeof(char) * (src_len + 1));
 	if (duped_str == 0)
 		return (0);
