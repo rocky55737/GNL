@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:22:49 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/28 16:38:46 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/29 17:17:28 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*joined_str;
 
 	if (s1)
-	{
 		len_s1 = my_strlen(s1);
-		free(s1);
-	}
 	else
 		len_s1 = 0;
 	len_s2 = my_strlen(s2);
@@ -74,19 +71,27 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (joined_str == 0)
 		return (0);
 	if (s1)
+	{
 		ft_strcpy(joined_str, (char *)s1);
+		free(s1);
+	}
 	else
 		joined_str[0] = 0;
 	ft_strcat(joined_str, (char *)s2);
 	return (joined_str);
 }
 
-char	*ft_substr_nl(char const *s, unsigned int start)
+char	*ft_substr_nl(char *s, int start)
 {
 	char	*sub_string;
 	size_t	cnt;
 	size_t	s_len;
 
+	if (!start)
+	{
+		free(s);
+		return (0);
+	}
 	s_len = my_strlen(s);
 	sub_string = (char *)malloc(sizeof(char) * (s_len - start + 1));
 	if (!sub_string)
@@ -98,5 +103,6 @@ char	*ft_substr_nl(char const *s, unsigned int start)
 		cnt++;
 	}
 	sub_string[cnt] = 0;
+	free(s);
 	return (sub_string);
 }

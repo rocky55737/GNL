@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42Seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:57:50 by rhong             #+#    #+#             */
-/*   Updated: 2022/06/28 18:33:30 by rhong            ###   ########.fr       */
+/*   Updated: 2022/06/29 17:14:57 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_substr_nl(char const *s, unsigned int start);
+char	*ft_substr_nl(char *s, int start);
 char	*ft_strjoin(char *s1, char *s2);
 
 #endif
